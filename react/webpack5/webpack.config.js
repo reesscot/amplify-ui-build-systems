@@ -16,7 +16,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new NodePolyfillPlugin(),
+    new NodePolyfillPlugin(), // Polyfill Node.js globals
   ],
   output: {
     path: path.resolve(__dirname, "./dist"),
