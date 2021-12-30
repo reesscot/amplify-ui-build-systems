@@ -2,6 +2,7 @@ import * as React from "react";
 import {
   AmplifyProvider,
   Button,
+  createTheme,
   Card,
   Text,
   Heading,
@@ -12,6 +13,27 @@ import {
   useTheme,
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
+
+export const myTheme = createTheme({
+  name: "my-theme",
+  tokens: {
+    colors: {
+      font: {
+        primary: { value: "rebeccapurple" },
+      },
+    },
+    fonts: {
+      default: {
+        variable: {
+          value: `'Open Sans', sans-serif`,
+        },
+        static: {
+          value: `'Open Sans', sans-serif`,
+        },
+      },
+    },
+  },
+});
 
 const Example = () => {
   const { tokens } = useTheme();
@@ -57,7 +79,7 @@ const Example = () => {
 
 function App() {
   return (
-    <AmplifyProvider>
+    <AmplifyProvider theme={myTheme}>
       <Example />
     </AmplifyProvider>
   );
